@@ -26,19 +26,19 @@ BOOKS = [
     },
 ]
 
-# Запись в JSON-файл
+# Запис в JSON-файл
 
 
 def save_books_to_json(books, filename):
-    # Из entry_added в POSIX timestamp
+    # З entry_added в POSIX timestamp
     for book in books:
         book['entry_added'] = int(book['entry_added'].timestamp())
 
-    # Запись в файл JSON
+    # Запис в файл JSON
     with open(filename, 'w') as file:
         json.dump(books, file, indent=4)
 
 
 if __name__ == "__main__":
-    # Сохранение книг в JSON-файл
+    # Збереження книг у JSON-файл
     save_books_to_json(BOOKS, 'books.json')
