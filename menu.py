@@ -2,16 +2,16 @@ from post import Post
 
 if __name__ == "__main__":
     while True:
-        print("Welcome to the new social")
+        print("Добро пожаловать в новую социальную сеть")
         message = ("""
-            Choose the option:
-            1. Add post
-            2. See all posts
-            3. Like post
-            4. Dislike post
-            0. Exit 
+            Выберите опцию:
+            1. Добавить пост
+            2. Просмотреть все посты
+            3. Поставить лайк посту
+            4. Поставить дизлайк посту
+            0. Выйти
 
-            Your Choice: """)
+            Ваш выбор: """)
         choice = input(message)
         match choice:
             case "1":
@@ -25,4 +25,4 @@ if __name__ == "__main__":
             case "0":
                 break
             case _:
-                print("Wrong choice")
+                print("Неправильный выбор")
