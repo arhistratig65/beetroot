@@ -9,7 +9,7 @@ class Content:
         self.created_at = datetime.now()
 
     def __str__(self):
-        return f"{self.author} сказал в {self.created_at}: {self.text}"
+        return f"{self.author} said at {self.created_at}: {self.text}"
 
 
 class Post(Content):
