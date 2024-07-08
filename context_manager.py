@@ -14,6 +14,7 @@ class ContextManager:
             logging.error(f'IndexError occurred: {exc_value}')
             return True  # Позначте виняток як оброблений
         else:
-            self.file.close()
+            if self.file:
+                self.file.close()
             # Дозволити розповсюдження винятків, відмінних від IndexError
             return False
