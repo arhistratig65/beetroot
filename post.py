@@ -17,7 +17,7 @@ class Post(Content):
     entries = list()
 
     def __init__(self):
-        super().__init__()  # Content.__init__()
+        super().__init__()
         self.entries.append(self)
         self.id = len(self.entries)
         self.likes = 0
@@ -28,7 +28,29 @@ class Post(Content):
                 f"Likes: {self.likes} | Dislikes: {self.dislikes}")
 
     def __eq__(self, other):
-        return self.rating == other.rating
+        if isinstance(other, Post):
+            return self.rating == other.rating
+        return False
+
+    def __lt__(self, other):
+        if isinstance(other, Post):
+            return self.rating < other.rating
+        return False
+
+    def __le__(self, other):
+        if isinstance(other, Post):
+            return self.rating <= other.rating
+        return False
+
+    def __gt__(self, other):
+        if isinstance(other, Post):
+            return self.rating > other.rating
+        return False
+
+    def __ge__(self, other):
+        if isinstance(other, Post):
+            return self.rating >= other.rating
+        return False
 
     @staticmethod
     def week_ago():
@@ -42,7 +64,7 @@ class Post(Content):
 
     @classmethod
     def show_posts(cls):
-        for entry in sorted(cls.entries, key=lambda post: post.rating, reverse=True):
+        for entry in sorted(cls.entries, reverse=True):
             print(entry)
 
     @classmethod
